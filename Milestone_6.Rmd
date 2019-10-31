@@ -1,0 +1,29 @@
+---
+title: "Mileston_6"
+author: "Grace Rotondo"
+date: "10/31/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(tidyverse)
+```
+
+```{r}
+dir.create("lax_data_m6")
+
+wlax <- read_excel("lax_data_m6/WLAX_LETTERWINNER_DATA_copy_m6.xlsx")
+
+alumnae <- read_excel("lax_data_m6/FoHL_ALumnae_List_10.3.19_coply_m6.xls")
+```
+
+```{r}
+wlax_1 <- wlax("Name", "Last", "First", "Graduation Year", "House", "Concentration", "Location", "Linkedin")
+
+all_data <- merge(wlax,alumnae, by = c("Name", "Last", "First", "Graduation Year", "House", "Concentration", "Secondary Concentration", "Preferred Email Address", "Company Name", "Job Title", "Location", "Linkedin")) 
+
+
+```
+
