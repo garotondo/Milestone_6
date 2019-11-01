@@ -8,6 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
+library(gapminder)
 library(tidyverse)
 ```
 
@@ -24,6 +25,8 @@ wlax_1 <- wlax("Name", "Last", "First", "Graduation Year", "House", "Concentrati
 
 all_data <- merge(wlax,alumnae, by = c("Name", "Last", "First", "Graduation Year", "House", "Concentration", "Secondary Concentration", "Preferred Email Address", "Company Name", "Job Title", "Location", "Linkedin")) 
 
+all_data <- nest_join(wlax, alumnae, by = c("Name", "Last", "First", "Graduation Year", "House", "Concentration", "Secondary Concentration", "Preferred Email Address", "Company Name", "Job Title", "Location", "Linkedin"))
 
+all_data
 ```
 
